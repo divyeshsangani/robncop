@@ -920,6 +920,15 @@ if (reversed == null) { reversed = false; }
 		if(this.totalFrames == 1) {
 			this.isSingleFrame = true;
 		}
+		var stageWidth;
+		var stageHeight;
+		
+		function getStageSize() 
+		{
+			stageWidth = stage.canvas.width / stage.scaleX;
+			stageHeight = stage.canvas.height / stage.scaleY;
+		}
+		
 		//exportRoot.stop();
 		
 		var isWalking = true;
@@ -1038,6 +1047,8 @@ if (reversed == null) { reversed = false; }
 		
 		function moveGuard(evt)
 		{
+			getStageSize();
+			
 			if(coinCount == 0)
 		    {
 		        exportRoot.guardMovieClip.gotoAndPlay("CRYING");
@@ -1055,7 +1066,7 @@ if (reversed == null) { reversed = false; }
 				exportRoot.guardMovieClip.x += guardSpeed * direction;
 				
 				// Check if guard reached right edge
-				if (exportRoot.guardMovieClip.x > (canvasWidth-40))
+				if (exportRoot.guardMovieClip.x > (stageWidth-40))
 				{
 					direction = -1; // Reverse direction
 					exportRoot.guardMovieClip.scaleX = -1; // Flip horizontally
@@ -1068,7 +1079,6 @@ if (reversed == null) { reversed = false; }
 					exportRoot.guardMovieClip.scaleX = 1; // Flip back to normal
 				}
 			}
-			
 		}
 	}
 
@@ -1124,9 +1134,9 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/divsang_midterms_atlas_1.png?1770796756566", id:"divsang_midterms_atlas_1"},
-		{src:"images/divsang_midterms_atlas_2.png?1770796756566", id:"divsang_midterms_atlas_2"},
-		{src:"images/divsang_midterms_atlas_3.png?1770796756566", id:"divsang_midterms_atlas_3"}
+		{src:"images/divsang_midterms_atlas_1.png?1770798171866", id:"divsang_midterms_atlas_1"},
+		{src:"images/divsang_midterms_atlas_2.png?1770798171866", id:"divsang_midterms_atlas_2"},
+		{src:"images/divsang_midterms_atlas_3.png?1770798171866", id:"divsang_midterms_atlas_3"}
 	],
 	preloads: []
 };
